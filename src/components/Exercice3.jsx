@@ -1,8 +1,11 @@
+import { useState } from "react";
 import Exercice from "./container/Exercice";
 
 export default function Exercice3() {
   // 1. Crée un state pour suivre l'état de visibilité du texte.
+  const [isVisible, setIsVisible] = useState (false)
   // 2. Implémente une fonction pour basculer a l'état contraire ! .
+  const toggleVisible = () => setIsVisible (!isVisible)
   // 3. Passe la fonction de toggle au bouton.
   // 4. Affiche ou masque le texte en fonction de l'état de visibilité.
   return (
@@ -14,9 +17,9 @@ export default function Exercice3() {
       </p>
       <div className="solution">
         <div>
-          <button>Afficher/Masquer</button>
+          <button type="button" onClick={toggleVisible}>Afficher/Masquer</button>
           {/* 5. Affiche conditionnellement le paragraphe en fonction de l'état */}
-          <p>Texte à afficher/masquer</p>
+          {isVisible && <p>Boo</p>}
         </div>
       </div>
     </Exercice>
